@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+  }
+  
+  .header {
+    width: 100%;
+    background-color: #e98f08;
+    color: rgb(19, 235, 12);
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .container {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid rgb(19, 235, 12);
+    background-color: #e98f08;
+    color: rgb(92, 0, 92);
+  }
+  
+  .submit-button {
+    background-color: orange;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .languages-list {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+
+  img {
+    max-width: 100%;
+    margin-top: 10px;
+  }
+  

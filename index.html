@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encuesta Random</title>
+  <!--<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>-->
+  <script src="./JS/Vue3.js"></script>
+  <link rel="stylesheet" href="./CSS/style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Encuesta de Programación</h1>
+      </header>
+      
+      <section id="app" class="container">
+        <p>¿Te gusta el pepino?</p>
+        <label><input type="radio" v-model="pepino" value="Sí" @change="decide"> Sí</label>
+        <label><input type="radio" v-model="pepino" value="No" @change="decide"> No</label>
+    
+        <div v-if="cuestionario && !resultado">
+          <p>¿Cuántas mascotas tienes?</p>
+          <input type="number" v-model="mascotas" min="0">
+    
+          <p><strong>¿Cuales son los generos de peliculas que te gustan y porque?:</strong></p>
+          <textarea v-model="genero" rows="3" cols="40" placeholder="Adelante no te juzgare........, aunque lo hare de todas formas....."></textarea>
+    
+          <p>Pon canciones para armar tu playlist (si vas a poner reggeton, por favor no pongas nada, saltatela)</p>
+          <input v-model="cancion" @keyup.enter="playlistChida">
+          <button @click="playlistChida">Agregar</button>
+          <ul class="languages-list">
+            <li v-for="(musica, index) in playlist" :key="index">{{ musica }}</li>
+          </ul>
+    
+          <button class="submit-button" @click="mostrarResultados">Mostrar resultados</button>
+        </div>
+    
+        <div v-if="resultado">
+          <h3>Resultados de la encuesta:</h3>
+          <p>¿Te gusta el pepino? <strong>{{ pepino }}</strong></p>
+          <p>¿Cuántas nascotas tienes? (si tienes mas de 5 me regalas uno???) <strong>{{ mascotas }}</strong></p>
+          <p>¿Cuales son los generos de peliculas que te gustan y porque?: <strong>{{ genero }}</strong></p>
+          <p>Playlist p3rron4 ::::v (espero que no hayas puesto reggeton >:v) :</p>
+          <ul class="languages-list">
+            <li v-for="(musica, index) in playlist" :key="index">{{ musica }}</li>
+          </ul>
+          <p>Felicidades te has ganado... nada, pero hey completaste algo no???</p>
+          <img :src="pepinoSi" alt="Simplemente eres el más perrón">
+        </div>
+    
+        <div v-else-if="pepino === 'No'">
+          <p>Gracias, pero no te gusta el pepino.</p>
+          <img :src="pepinoNo" alt="Imagen para quienes no les gusta el pepino">
+        </div>
+      </section>
+  <script src="./JS/script.js"></script>
+</body>
+</html>
+
